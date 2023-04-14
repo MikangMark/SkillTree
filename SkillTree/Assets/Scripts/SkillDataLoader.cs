@@ -7,9 +7,10 @@ public class SkillDataLoader : MonoBehaviour
     [SerializeField]
     private TestData data;
     private SkillTree skillTree;//이거하나당 루트 스킬 하나(기본스킬)
+    
 
     public Dictionary<int, TestData.SkillData> skillList;//모든 스킬코드, 스킬정보 
-    public Dictionary<int, List<TestData.SkillData>> depthList;//심도에 따른 스킬리스트 같은심도끼리 리스트화되어있음
+    public Dictionary<int, List<TestData.SkillData>> depthList;//심도에 따른 스킬리스트 같은심도끼리 리스트화되어있음 심도0은 루트스킬
 
     int maxDepth = 0;
     SkillDataLoader()
@@ -35,7 +36,7 @@ public class SkillDataLoader : MonoBehaviour
         }
         List<TestData.SkillData> temp;
         temp = new List<TestData.SkillData>();
-        for (int i = 0; i < maxDepth; i++)
+        for (int i = 0; i < maxDepth + 1; i++)
         {
             for(int j = 0; j < data.items.Count; j++)
             {
@@ -46,5 +47,7 @@ public class SkillDataLoader : MonoBehaviour
             }
             depthList[i] = temp;
         }
+        Debug.Log(skillList.Count);
+        Debug.Log(depthList.Count);
     }
 }

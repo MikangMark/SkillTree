@@ -10,7 +10,7 @@ public class Skill : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //thisSkill = new SkillNode();
     }
 
     // Update is called once per frame
