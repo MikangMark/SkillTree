@@ -760,7 +760,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: f8ca78cb7ec180544b39cbc34244c6f0, type: 2}
-  skillTree: []
   rootSkill: []
 --- !u!4 &1698642511
 Transform:

@@ -49,7 +49,7 @@ public class SkillNode//루트 스킬
         children.Remove(child);
     }
 }
-public class SkillTree : MonoBehaviour//루트스킬관리
+public class SkillTree//루트스킬관리
 {
     public SkillNode root; // 루트 스킬
 

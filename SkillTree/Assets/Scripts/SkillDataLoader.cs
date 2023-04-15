@@ -6,6 +6,7 @@ public class SkillDataLoader : MonoBehaviour
 {
     [SerializeField]
     private TestData data;
+    [SerializeField]
     public List<SkillTree> skillTree;//이거하나당 루트 스킬 하나(기본스킬)심도 0인스킬의 리스트
     
 
@@ -26,10 +27,9 @@ public class SkillDataLoader : MonoBehaviour
         SetAllSkill();
         SetDepthList();
         skillTree = new List<SkillTree>();
-        for(int i = 0;i< rootSkill.Count; i++)//루트스킬 생성
+        for (int i = 0;i< rootSkill.Count; i++)//루트스킬 생성
         {
             skillTree.Add(new SkillTree(rootSkill[i]));
-            //skillTree[i].AddSkill(skillTree[i].root, rootSkill[i]);
         }
 
         for (int i = 10001; i < 10001 + skillList.Count; i++)
@@ -38,10 +38,15 @@ public class SkillDataLoader : MonoBehaviour
             {
                 for(int j = 0; j < skillList[i].needSkillCode.Count; j++)
                 {
-                    if(skillList[i].needSkillCode[j] == skillList[i].code)
+                    for(int k = 10001; k < 10001 + skillList.Count; k++)
                     {
-                        skillTree[i - 10001].AddSkill(skillList[i], FindSkill2Code(skillList[i].needSkillCode[j]));
-                        //skillTree[i - 10001].root.AddChild(new SkillNode(FindSkill2Code(skillList[i].needSkillCode[j])));
+                        if (skillList[i].needSkillCode[j] == skillList[k].code)
+                        {
+                            for(int l = 0; l < skillTree.Count; l++)
+                            {
+                                skillTree[l].AddSkill(skillList[k], skillList[i]);
+                            }
+                        }
                     }
                 }
             }
@@ -81,10 +86,5 @@ public class SkillDataLoader : MonoBehaviour
                 rootSkill.Add(skillList[i]);
             }
         }
-    }
-
-    public TestData.SkillData FindSkill2Code(int _code)
-    {
-        return skillList[_code];
     }
 }
