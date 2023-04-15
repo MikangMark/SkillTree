@@ -123,58 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &38116547
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 38116549}
-  - component: {fileID: 38116548}
-  m_Layer: 0
-  m_Name: SkillManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &38116548
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 38116547}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b32327e63c958cb4e9c46b95e7d1ed63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  root:
-    skillName: 
-    children: []
-    depth: 0
-    request_level: 0
-    request_sp: 0
-    type: 0
-    skill_Img: {fileID: 0}
---- !u!4 &38116549
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 38116547}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 952.69147, y: 531.366, z: -8.946682}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &399789252
 GameObject:
   m_ObjectHideFlags: 0
@@ -524,7 +472,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1171509568
 GameObject:
@@ -812,6 +760,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: f8ca78cb7ec180544b39cbc34244c6f0, type: 2}
+  skillTree: []
+  rootSkill: []
 --- !u!4 &1698642511
 Transform:
   m_ObjectHideFlags: 0
@@ -825,7 +775,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1702995257
 GameObject:
@@ -1262,9 +1212,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: []
-  lineRenderer: {fileID: 0}
-  sortingLayerName: MySortingLayer
-  sortingOrder: 0
 --- !u!114 &2078848309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1278,13 +1225,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisSkill:
+    code: 0
     skillName: 
     children: []
     depth: 0
-    request_level: 0
-    request_sp: 0
+    rq_LV: 0
+    rq_SP: 0
     type: 0
     skill_Img: {fileID: 0}
+    isRoot: 0
+    needSkill: []
+    needSkillCode: 
 --- !u!114 &2078848310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1433,13 +1384,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisSkill:
+    code: 0
     skillName: 
     children: []
     depth: 0
-    request_level: 0
-    request_sp: 0
+    rq_LV: 0
+    rq_SP: 0
     type: 0
     skill_Img: {fileID: 0}
+    isRoot: 0
+    needSkill: []
+    needSkillCode: 
 --- !u!114 &7667734700642893394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1528,6 +1483,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target:
   - {fileID: 2078848306}
-  lineRenderer: {fileID: 0}
-  sortingLayerName: MySortingLayer
-  sortingOrder: 0

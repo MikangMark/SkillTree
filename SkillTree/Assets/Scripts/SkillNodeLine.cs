@@ -5,9 +5,7 @@ using UnityEngine;
 public class SkillNodeLine : MonoBehaviour
 {
     public List<GameObject> target;//연결할 오브젝트 
-    public LineRenderer lineRenderer; // Line Renderer 컴포넌트
-    public string sortingLayerName = "MySortingLayer";
-    public int sortingOrder = 0;
+
     private void Start()
     {
         if (target.Count <= 0)
@@ -42,8 +40,6 @@ public class SkillNodeLine : MonoBehaviour
         {
             lineRenderer.SetPosition(1 + i, screenchildrens[i]);
         }
-        
-
         // LineRenderer 머티리얼 설정
         lineRenderer.material = new Material(Resources.Load<Material>("LineMaterial"));
 

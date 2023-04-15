@@ -22,6 +22,7 @@ public class TestData : ScriptableObject
         public int depth;
         public List<string> needSkill;
         public List<int> needSkillCode;
+        public bool isRoot;
     }
     public string associatedSheet = "";
     public string associatedWorksheet = "";
@@ -57,6 +58,10 @@ public class TestData : ScriptableObject
                     temp.depth = int.Parse(list[i].value);
                     break;
                 case "NeedSkill":
+                    if (list[i].value.Equals(""))
+                    {
+                        break;
+                    }
                     string[] text = list[i].value.Split('/');
                     temp.needSkill = new List<string>();
                     for(int j = 0; j < text.Length; j++)
@@ -64,7 +69,23 @@ public class TestData : ScriptableObject
                         temp.needSkill.Add(text[j]);
                     }
                     break;
+                case "IsRoot":
+                    switch (list[i].value)
+                    {
+                        case "TRUE":
+                            temp.isRoot = true;
+                            break;
+
+                        case "FALSE":
+                            temp.isRoot = false;
+                            break;
+                    }
+                    break;
                 case "NeedSkillCode":
+                    if (list[i].value.Equals(""))
+                    {
+                        break;
+                    }
                     string[] value = list[i].value.Split('/');
                     temp.needSkillCode = new List<int>();
                     for(int j = 0; j < value.Length; j++)

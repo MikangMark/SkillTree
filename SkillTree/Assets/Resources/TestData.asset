@@ -23,6 +23,7 @@ MonoBehaviour:
     depth: 0
     needSkill: []
     needSkillCode: 
+    isRoot: 1
   - code: 10002
     name: "\uCC0C\uB974\uAE30"
     type: 1
@@ -31,6 +32,7 @@ MonoBehaviour:
     depth: 0
     needSkill: []
     needSkillCode: 
+    isRoot: 1
   - code: 10003
     name: "\uACF5\uACA9\uB825\uC0C1\uC2B9"
     type: 0
@@ -39,6 +41,7 @@ MonoBehaviour:
     depth: 0
     needSkill: []
     needSkillCode: 
+    isRoot: 1
   - code: 10004
     name: "\uBA85\uC0C1"
     type: 1
@@ -47,6 +50,7 @@ MonoBehaviour:
     depth: 1
     needSkill: []
     needSkillCode: 
+    isRoot: 1
   - code: 10005
     name: "\uD68C\uBCF5"
     type: 1
@@ -55,6 +59,7 @@ MonoBehaviour:
     depth: 0
     needSkill: []
     needSkillCode: 
+    isRoot: 1
   - code: 10006
     name: "\uC804\uD22C\uB825\uC0C1\uC2B9"
     type: 0
@@ -65,6 +70,7 @@ MonoBehaviour:
     - "\uBC29\uC5B4\uB825\uC0C1\uC2B9"
     - "\uACF5\uACA9\uB825\uC0C1\uC2B9"
     needSkillCode: 1127000013270000
+    isRoot: 0
   - code: 10007
     name: "\uD654\uC5FC\uAD6C"
     type: 1
@@ -74,6 +80,7 @@ MonoBehaviour:
     needSkill:
     - "\uBA85\uC0C1"
     needSkillCode: 14270000
+    isRoot: 0
   - code: 10008
     name: "\uBC88\uAC1C"
     type: 1
@@ -83,6 +90,7 @@ MonoBehaviour:
     needSkill:
     - "\uBA85\uC0C1"
     needSkillCode: 14270000
+    isRoot: 0
   - code: 10009
     name: "\uC5BC\uC74C\uD654\uC0B4"
     type: 1
@@ -92,6 +100,7 @@ MonoBehaviour:
     needSkill:
     - "\uBA85\uC0C1"
     needSkillCode: 14270000
+    isRoot: 0
   - code: 10010
     name: "\uD3ED\uBC1C\uD0C4"
     type: 1
@@ -102,6 +111,7 @@ MonoBehaviour:
     - "\uD654\uC5FC\uAD6C"
     - "\uBC88\uAC1C"
     needSkillCode: 1727000018270000
+    isRoot: 0
   - code: 10011
     name: "\uCCB4\uB825\uC0C1\uC2B9"
     type: 0
@@ -111,6 +121,7 @@ MonoBehaviour:
     needSkill:
     - "\uBC29\uC5B4\uB825\uC0C1\uC2B9"
     needSkillCode: 11270000
+    isRoot: 0
   Names:
   - 10001
   - 10002
