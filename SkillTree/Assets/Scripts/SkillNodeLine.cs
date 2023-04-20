@@ -4,45 +4,34 @@ using UnityEngine;
 
 public class SkillNodeLine : MonoBehaviour
 {
-    public List<GameObject> target;//¿¬°áÇÒ ¿ÀºêÁ§Æ® 
+	public List<GameObject> target;//ì—°ê²°í•  ì˜¤ë¸Œì íŠ¸ 
+	public List<LineRenderer> lineObj;//ë¼ì¸ë Œë”ëŸ¬ ì˜¤ë¸Œì íŠ¸
+	public LineRenderer linePfab;
+	private void Start()
+	{
+		StartCoroutine(CreateLine());
+	}
 
-    private void Start()
-    {
-        if (target.Count <= 0)
-        {
-            return;
-        }
-        // Canvas¿¡ Ãß°¡µÈ GameObject¿¡¼­ RectTransform ÄÄÆ÷³ÍÆ® °¡Á®¿À±â
-        Vector3 rootPos = gameObject.GetComponent<RectTransform>().position;
-        List<Vector3> childrens = new List<Vector3>();
-        for(int i=0;i< target.Count; i++)
-        {
-            childrens.Add(target[i].GetComponent<RectTransform>().position);
-        }
-        
-        // LineRenderer Ãß°¡
-        LineRenderer lineRenderer = gameObject.AddComponent<LineRenderer>();
-        lineRenderer.positionCount = target.Count + 1;
-        lineRenderer.startWidth = 0.1f;
-        lineRenderer.endWidth = 0.1f;
-        // RectTransformÀ» »ç¿ëÇÏ¿© UI ÁÂÇ¥°è¿¡¼­ ½ºÅ©¸° ÁÂÇ¥°è·Î º¯È¯
-        RectTransform canvasRectTransform = gameObject.GetComponentInParent<Canvas>().GetComponent<RectTransform>();
-        Vector2 screenrootPos = RectTransformUtility.WorldToScreenPoint(null, rootPos);
-        List<Vector2> screenchildrens = new List<Vector2>();
-        for(int i = 0; i < childrens.Count; i++)
-        {
-            screenchildrens.Add(RectTransformUtility.WorldToScreenPoint(null, childrens[i]));
-        }
-        
-        // LineRenderer¿¡ ÁÂÇ¥ ¼³Á¤
-        lineRenderer.SetPosition(0, screenrootPos);
-        for(int i = 0; i < childrens.Count; i++)
-        {
-            lineRenderer.SetPosition(1 + i, screenchildrens[i]);
-        }
-        // LineRenderer ¸ÓÆ¼¸®¾ó ¼³Á¤
-        lineRenderer.material = new Material(Resources.Load<Material>("LineMaterial"));
+	IEnumerator CreateLine()
+	{
+		yield return null;
 
-    }
+		if (target.Count <= 0)
+		{
+			yield break;
+		}
 
+		lineObj = new List<LineRenderer>();
+
+		for (int i = 0; i < target.Count; i++)
+		{
+			LineRenderer line = Instantiate<LineRenderer>(linePfab, transform);
+			line.name = "[" + GetComponent<Skill>().thisSkill.code + "]2Line[" + target[i].GetComponent<Skill>().thisSkill.code + "]";
+			lineObj.Add(line);
+
+			line.useWorldSpace = true;
+			line.SetPosition(0, transform.position);
+			line.SetPosition(1, target[i].transform.position);
+		}
+	}
 }

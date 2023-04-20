@@ -48,6 +48,20 @@ public class SkillNode//루트 스킬
     {
         children.Remove(child);
     }
+
+    public void InputData(SkillNode _data)
+    {
+        code = _data.code;
+        skillName = _data.skillName;
+        children = _data.children;
+        depth = _data.depth;
+        rq_LV = _data.rq_LV;
+        rq_SP = _data.rq_SP;
+        type = _data.type;
+        isRoot = _data.isRoot;
+        needSkill = _data.needSkill;
+        needSkillCode = _data.needSkillCode;
+    }
 }
 public class SkillTree//루트스킬관리
 {

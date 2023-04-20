@@ -18,7 +18,7 @@ MonoBehaviour:
   - code: 10001
     name: "\uBC29\uC5B4\uB825\uC0C1\uC2B9"
     type: 0
-    rq_LV: 0
+    rq_LV: 1
     rq_SP: 1
     depth: 0
     needSkill: []
@@ -27,7 +27,7 @@ MonoBehaviour:
   - code: 10002
     name: "\uCC0C\uB974\uAE30"
     type: 1
-    rq_LV: 0
+    rq_LV: 1
     rq_SP: 1
     depth: 0
     needSkill: []
@@ -36,7 +36,7 @@ MonoBehaviour:
   - code: 10003
     name: "\uACF5\uACA9\uB825\uC0C1\uC2B9"
     type: 0
-    rq_LV: 0
+    rq_LV: 1
     rq_SP: 1
     depth: 0
     needSkill: []
@@ -45,7 +45,7 @@ MonoBehaviour:
   - code: 10004
     name: "\uBA85\uC0C1"
     type: 1
-    rq_LV: 1
+    rq_LV: 2
     rq_SP: 2
     depth: 1
     needSkill: []
@@ -54,7 +54,7 @@ MonoBehaviour:
   - code: 10005
     name: "\uD68C\uBCF5"
     type: 1
-    rq_LV: 0
+    rq_LV: 1
     rq_SP: 2
     depth: 0
     needSkill: []
@@ -63,7 +63,7 @@ MonoBehaviour:
   - code: 10006
     name: "\uC804\uD22C\uB825\uC0C1\uC2B9"
     type: 0
-    rq_LV: 1
+    rq_LV: 2
     rq_SP: 2
     depth: 1
     needSkill:
@@ -74,9 +74,9 @@ MonoBehaviour:
   - code: 10007
     name: "\uD654\uC5FC\uAD6C"
     type: 1
-    rq_LV: 2
+    rq_LV: 3
     rq_SP: 1
-    depth: 1
+    depth: 2
     needSkill:
     - "\uBA85\uC0C1"
     needSkillCode: 14270000
@@ -84,9 +84,9 @@ MonoBehaviour:
   - code: 10008
     name: "\uBC88\uAC1C"
     type: 1
-    rq_LV: 2
+    rq_LV: 3
     rq_SP: 1
-    depth: 1
+    depth: 2
     needSkill:
     - "\uBA85\uC0C1"
     needSkillCode: 14270000
@@ -94,9 +94,9 @@ MonoBehaviour:
   - code: 10009
     name: "\uC5BC\uC74C\uD654\uC0B4"
     type: 1
-    rq_LV: 2
+    rq_LV: 3
     rq_SP: 1
-    depth: 1
+    depth: 2
     needSkill:
     - "\uBA85\uC0C1"
     needSkillCode: 14270000
@@ -104,18 +104,19 @@ MonoBehaviour:
   - code: 10010
     name: "\uD3ED\uBC1C\uD0C4"
     type: 1
-    rq_LV: 4
+    rq_LV: 5
     rq_SP: 3
-    depth: 2
+    depth: 3
     needSkill:
     - "\uD654\uC5FC\uAD6C"
     - "\uBC88\uAC1C"
-    needSkillCode: 1727000018270000
+    - "\uC5BC\uC74C\uD654\uC0B4"
+    needSkillCode: 172700001827000019270000
     isRoot: 0
   - code: 10011
     name: "\uCCB4\uB825\uC0C1\uC2B9"
     type: 0
-    rq_LV: 1
+    rq_LV: 2
     rq_SP: 1
     depth: 1
     needSkill:
