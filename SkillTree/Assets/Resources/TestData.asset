@@ -123,6 +123,7 @@ MonoBehaviour:
     - "\uBC29\uC5B4\uB825\uC0C1\uC2B9"
     needSkillCode: 11270000
     isRoot: 0
+  dataLoader: {fileID: 0}
   Names:
   - 10001
   - 10002

@@ -1093,6 +1093,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1698642511}
   - component: {fileID: 1698642510}
+  - component: {fileID: 1698642512}
   m_Layer: 0
   m_Name: DataLoader
   m_TagString: Untagged
@@ -1112,7 +1113,115 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cd010b79f4dc8f4da8ac7cb93dd2270, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: f8ca78cb7ec180544b39cbc34244c6f0, type: 2}
+  items:
+  - code: 10001
+    name: "\uBC29\uC5B4\uB825\uC0C1\uC2B9"
+    type: 0
+    rq_LV: 1
+    rq_SP: 1
+    depth: 0
+    needSkill: []
+    needSkillCode: 
+    isRoot: 1
+  - code: 10002
+    name: "\uCC0C\uB974\uAE30"
+    type: 1
+    rq_LV: 1
+    rq_SP: 1
+    depth: 0
+    needSkill: []
+    needSkillCode: 
+    isRoot: 1
+  - code: 10003
+    name: "\uACF5\uACA9\uB825\uC0C1\uC2B9"
+    type: 0
+    rq_LV: 1
+    rq_SP: 1
+    depth: 0
+    needSkill: []
+    needSkillCode: 
+    isRoot: 1
+  - code: 10004
+    name: "\uBA85\uC0C1"
+    type: 1
+    rq_LV: 2
+    rq_SP: 2
+    depth: 1
+    needSkill: []
+    needSkillCode: 
+    isRoot: 1
+  - code: 10005
+    name: "\uD68C\uBCF5"
+    type: 1
+    rq_LV: 1
+    rq_SP: 2
+    depth: 0
+    needSkill: []
+    needSkillCode: 
+    isRoot: 1
+  - code: 10006
+    name: "\uC804\uD22C\uB825\uC0C1\uC2B9"
+    type: 0
+    rq_LV: 2
+    rq_SP: 2
+    depth: 1
+    needSkill:
+    - "\uBC29\uC5B4\uB825\uC0C1\uC2B9"
+    - "\uACF5\uACA9\uB825\uC0C1\uC2B9"
+    needSkillCode: 1127000013270000
+    isRoot: 0
+  - code: 10007
+    name: "\uD654\uC5FC\uAD6C"
+    type: 1
+    rq_LV: 3
+    rq_SP: 1
+    depth: 2
+    needSkill:
+    - "\uBA85\uC0C1"
+    needSkillCode: 14270000
+    isRoot: 0
+  - code: 10008
+    name: "\uBC88\uAC1C"
+    type: 1
+    rq_LV: 3
+    rq_SP: 1
+    depth: 2
+    needSkill:
+    - "\uBA85\uC0C1"
+    needSkillCode: 14270000
+    isRoot: 0
+  - code: 10009
+    name: "\uC5BC\uC74C\uD654\uC0B4"
+    type: 1
+    rq_LV: 3
+    rq_SP: 1
+    depth: 2
+    needSkill:
+    - "\uBA85\uC0C1"
+    needSkillCode: 14270000
+    isRoot: 0
+  - code: 10010
+    name: "\uD3ED\uBC1C\uD0C4"
+    type: 1
+    rq_LV: 5
+    rq_SP: 3
+    depth: 3
+    needSkill:
+    - "\uD654\uC5FC\uAD6C"
+    - "\uBC88\uAC1C"
+    - "\uC5BC\uC74C\uD654\uC0B4"
+    needSkillCode: 172700001827000019270000
+    isRoot: 0
+  - code: 10011
+    name: "\uCCB4\uB825\uC0C1\uC2B9"
+    type: 0
+    rq_LV: 2
+    rq_SP: 1
+    depth: 1
+    needSkill:
+    - "\uBC29\uC5B4\uB825\uC0C1\uC2B9"
+    needSkillCode: 11270000
+    isRoot: 0
   rootSkill: []
   maxDepth: 0
 --- !u!4 &1698642511
@@ -1130,6 +1239,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1698642512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1698642509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d00c823c19b79f4a9ded644c83f606e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  associatedSheet: 1cVKboBneave9Qi0_WZwWIwW7Xvsc_S8RE_hdDBaIWqM
+  associatedWorksheet: SkillList
+  items: []
+  dataLoader: {fileID: 0}
+  Names:
+  - 10001
+  - 10002
+  - 10003
+  - 10004
+  - 10005
+  - 10006
+  - 10007
+  - 10008
+  - 10009
+  - 10010
+  - 10011
 --- !u!1 &2017742658
 GameObject:
   m_ObjectHideFlags: 0

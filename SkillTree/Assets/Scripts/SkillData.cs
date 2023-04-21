@@ -1,40 +1,26 @@
-﻿using UnityEngine;
 using System.Collections;
-using GoogleSheetsToUnity;
 using System.Collections.Generic;
+using UnityEngine;
+
+using GoogleSheetsToUnity;
 using System;
 using UnityEngine.Events;
 using GoogleSheetsToUnity.ThirdPary;
 
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
-public class TestData : ScriptableObject
+public class SkillData:MonoBehaviour
 {
-    [System.Serializable]
-    public struct SkillData
-    {
-        public int code;
-        public string name;
-        public SkillType type;
-        public int rq_LV;
-        public int rq_SP;
-        public int depth;
-        public List<string> needSkill;
-        public List<int> needSkillCode;
-        public bool isRoot;
-    }
     public string associatedSheet = "";
     public string associatedWorksheet = "";
 
-    public List<SkillData> items = new List<SkillData>();
-    
+    public List<SkillDataLoader.SkillData> items = new List<SkillDataLoader.SkillData>();
+    [HideInInspector]
+    public SkillDataLoader dataLoader;
     public List<string> Names = new List<string>();
 
     internal void UpdateStats(List<GSTU_Cell> list, string name)
     {
-        SkillData temp;
-        temp = new SkillData();
+        SkillDataLoader.SkillData temp;
+        temp = new SkillDataLoader.SkillData();
         for (int i = 0; i < list.Count; i++)
         {
             switch (list[i].columnId)
@@ -64,7 +50,7 @@ public class TestData : ScriptableObject
                     }
                     string[] text = list[i].value.Split('/');
                     temp.needSkill = new List<string>();
-                    for(int j = 0; j < text.Length; j++)
+                    for (int j = 0; j < text.Length; j++)
                     {
                         temp.needSkill.Add(text[j]);
                     }
@@ -88,7 +74,7 @@ public class TestData : ScriptableObject
                     }
                     string[] value = list[i].value.Split('/');
                     temp.needSkillCode = new List<int>();
-                    for(int j = 0; j < value.Length; j++)
+                    for (int j = 0; j < value.Length; j++)
                     {
                         temp.needSkillCode.Add(int.Parse(value[j]));
                     }
@@ -97,31 +83,16 @@ public class TestData : ScriptableObject
         }
         items.Add(temp);
     }
-
 }
-
-[CustomEditor(typeof(TestData))]
-public class DataEditor : Editor
+[System.Serializable]
+public class DataEditor:MonoBehaviour
 {
-    TestData data;
+    public SkillData data;
 
-    void OnEnable()
+    void Start()
     {
-        data = (TestData)target;
+        UpdateStats(UpdateMethodOne);
     }
-
-    public override void OnInspectorGUI()
-    {
-        base.OnInspectorGUI();
-
-        GUILayout.Label("Read Data Examples");
-
-        if (GUILayout.Button("Pull Data Method One"))
-        {
-            UpdateStats(UpdateMethodOne);
-        }
-    }
-
     void UpdateStats(UnityAction<GstuSpreadSheet> callback, bool mergedCells = false)
     {
         SpreadsheetManager.Read(new GSTU_Search(data.associatedSheet, data.associatedWorksheet), callback, mergedCells);
@@ -134,8 +105,8 @@ public class DataEditor : Editor
         {
             data.UpdateStats(ss.rows[dataName], dataName);
         }
-            
-        EditorUtility.SetDirty(target);
+        data.dataLoader.items = data.items;
+
     }
-    
+
 }

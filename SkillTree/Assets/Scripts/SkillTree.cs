@@ -20,7 +20,7 @@ public class SkillNode//루트 스킬
     public List<string> needSkill;
     public List<int> needSkillCode;
 
-    public SkillNode(TestData.SkillData _data)
+    public SkillNode(SkillDataLoader.SkillData _data)
     {
         code = _data.code;
         skillName = _data.name;
@@ -67,13 +67,13 @@ public class SkillTree//루트스킬관리
 {
     public SkillNode root; // 루트 스킬
 
-    public SkillTree(TestData.SkillData rootSkill)
+    public SkillTree(SkillDataLoader.SkillData rootSkill)
     {
         root = new SkillNode(rootSkill);
     }
 
     // 스킬 추가
-    public void AddSkill(TestData.SkillData parentSkillData, TestData.SkillData newSkillData)
+    public void AddSkill(SkillDataLoader.SkillData parentSkillData, SkillDataLoader.SkillData newSkillData)
     {
         SkillNode parentNode = FindSkillNode(root, parentSkillData.code);
 

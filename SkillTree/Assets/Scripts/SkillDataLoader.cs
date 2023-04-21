@@ -4,21 +4,35 @@ using UnityEngine;
 
 public class SkillDataLoader : MonoBehaviour
 {
+    [System.Serializable]
+    public struct SkillData
+    {
+        public int code;
+        public string name;
+        public SkillType type;
+        public int rq_LV;
+        public int rq_SP;
+        public int depth;
+        public List<string> needSkill;
+        public List<int> needSkillCode;
+        public bool isRoot;
+    }
     [SerializeField]
-    private TestData data;
+    //private TestData data;
+    public List<SkillData> items = new List<SkillData>();
     [SerializeField]
     public List<SkillTree> skillTree;//이거하나당 루트 스킬 하나(기본스킬)심도 0인스킬의 리스트 하위스킬연동되있는 리스트
     
 
-    public Dictionary<int, TestData.SkillData> skillList;//모든 스킬코드, 스킬정보 
-    public Dictionary<int, List<TestData.SkillData>> depthList;//심도에 따른 스킬리스트 같은심도끼리 리스트화되어있음 심도0은 루트스킬
-    public List<TestData.SkillData> rootSkill;//루트 스킬 모음
+    public Dictionary<int, SkillData> skillList;//모든 스킬코드, 스킬정보 
+    public Dictionary<int, List<SkillData>> depthList;//심도에 따른 스킬리스트 같은심도끼리 리스트화되어있음 심도0은 루트스킬
+    public List<SkillData> rootSkill;//루트 스킬 모음
     public int maxDepth = 0;
     SkillDataLoader()
     {
-        skillList = new Dictionary<int, TestData.SkillData>();
-        depthList = new Dictionary<int, List<TestData.SkillData>>();
-        rootSkill = new List<TestData.SkillData>();
+        skillList = new Dictionary<int, SkillData>();
+        depthList = new Dictionary<int, List<SkillData>>();
+        rootSkill = new List<SkillData>();
     }
     // Start is called before the first frame update
     void Start()
@@ -30,20 +44,20 @@ public class SkillDataLoader : MonoBehaviour
 
     void SetAllSkill()
     {
-        for (int i = 0; i < data.items.Count; i++)
+        for (int i = 0; i < items.Count; i++)
         {
-            if (maxDepth < data.items[i].depth)
+            if (maxDepth < items[i].depth)
             {
-                maxDepth = data.items[i].depth;
+                maxDepth = items[i].depth;
             }
-            skillList.Add(data.items[i].code, data.items[i]);
+            skillList.Add(items[i].code, items[i]);
         }
     }
     void SetDepthList()
     {
         for (int i = 0; i <= maxDepth; i++)
         {
-            depthList.Add(i, new List<TestData.SkillData>());
+            depthList.Add(i, new List<SkillData>());
         }
 
         for (int i = 10001; i < 10001 + skillList.Count; i++)
